@@ -22,16 +22,24 @@
          align-items: center; 
          flex-direction: column; 
          max-width: 25rem; 
-         margin: auto;">
+         margin: auto;
+         font-family: 'Space Mono', monospace;">
   <img src="images\logo.svg" >
-  <div style="display: flex; background-color: #FFFFFF; min-height: 481px; min-width: 920px; ">
-    <div style="display: flex; flex-direction: column; margin: auto;">
-      <div style="display: flex; flex-direction: column;">
+  <div 
+    style="display: flex; 
+           background-color: #FFFFFF; 
+           min-height: 481px; 
+           min-width: 920px; 
+           box-shadow: 5px 8px 20px rgba(0,0,0,0.2), -5px 8px 20px rgba(0,0,0,0.2), 0 4px 10px rgba(0,0,0,0.15); 
+           border-radius: 25px; 
+           margin-bottom: 30px;">
+    <div style="display: flex; flex-direction: column; margin: auto; ">
+      <div style="display: flex; flex-direction: column; ">
         <label for="billInput">Bill</label>
-        <input id="billInput"; type="number" name="billInput" placeholder="0.00">  
+        <input id="billInput"; type="number" name="billInput" placeholder="0.00" style="min-height: 40px; min-width: 379px; border-radius: 7px; text-align: right;">  
       </div>
-      <div style="display: flex; flex-direction: column;">
-        <h1>Select Tip %</h1>
+      <div style="display: flex; flex-direction: column; margin-top: 20%; margin-bottom: 20%;">
+        <label >Select Tip %</label>
         <div style="display: flex;">
           <button id="fivePercent">5%</button>
           <button id="tenPercent">10%</button>
@@ -43,9 +51,9 @@
           <button id="customTip">Custom</button>
         </div>
       </div>
-      <div style="display: flex; flex-direction: column;">
+      <div style="display: flex; flex-direction: column; margin-top: 15px;">
         <label for="peopleInput">Number of People</label>
-        <input id="peopleInput"; type="number" name="peopleInput" placeholder="0">
+        <input id="peopleInput" type="number" name="peopleInput" placeholder="0" style="min-height: 40px; min-width: 379px; border-radius: 7px; text-align: right;">
       </div>
     </div>
     <div 
@@ -74,8 +82,16 @@
         </div>
       </div>
 
-      <div style="width: 80%; height: 12%; margin: auto; margin-top: 53%;">
-        <button style="color: #26C2AE; border-radius: 5px; height: 100%; width: 100%;" id="resetButton"> RESET </button>
+      <div style="width: 80%; height: 12%; margin: auto; margin-top: 50%;">
+        <button 
+          style="color: #26C2AE; 
+                 border-radius: 5px; 
+                 height: 100%; width: 100%; 
+                 background-color: #9FE8DF; 
+                 color: #00474B; 
+                 font-weight: 600; 
+                 border: none;" 
+                 id="resetButton"> RESET </button>
       </div>
     </div>
   </div>
