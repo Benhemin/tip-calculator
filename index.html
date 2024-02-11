@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body 
+  style="background-color: #C5E4E7; 
+         display: flex; 
+         justify-content: center; 
+         align-items: center; 
+         flex-direction: column; 
+         max-width: 25rem; 
+         margin: auto;">
+  <img src="images\logo.svg" >
+  <div style="display: flex; background-color: #FFFFFF; min-height: 481px; min-width: 920px; ">
+    <div style="display: flex; flex-direction: column; margin: auto;">
+      <div style="display: flex; flex-direction: column;">
+        <label for="billInput">Bill</label>
+        <input id="billInput"; type="number" name="billInput" placeholder="0.00">  
+      </div>
+      <div style="display: flex; flex-direction: column;">
+        <h1>Select Tip %</h1>
+        <div style="display: flex;">
+          <button id="fivePercent">5%</button>
+          <button id="tenPercent">10%</button>
+          <button id="fifteenPercent">15%</button>
+        </div>
+        <div style="display: flex;">
+          <button id="twentyFivePercent">25%</button>
+          <button id="fiftyPercent">50%</button>
+          <button id="customTip">Custom</button>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column;">
+        <label for="peopleInput">Number of People</label>
+        <input id="peopleInput"; type="number" name="peopleInput" placeholder="0">
+      </div>
+    </div>
+    <div 
+      style="background-color: #00474b; 
+             height: 417px; 
+             width: 413px; 
+             border-radius: 15px; 
+             margin: auto;">`
+      <div style="display: flex; max-height: 50px; width: 80%; justify-content: space-between; margin: auto;">
+        <div style="display: flex; flex-direction: column;">
+          <h3 style="margin-bottom: 0%;">Tip Amount </h3>
+          <p style="margin-top: 0%;">/ person</p>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <h4 style="color: #26C2AE;" id="tipAmount">$0.00</h4>
+        </div>
+      </div>
+
+      <div style="display: flex; max-height: 50px; width: 80%; justify-content: space-between; margin: auto;">
+        <div style="display: flex; flex-direction: column;">
+          <h3 style="margin-bottom: 0%;">Total </h3>
+          <p style="margin-top: 0%;">/ person</p>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <h4 style="color: #26C2AE;" id="totalAmount">$0.00</h4>
+        </div>
+      </div>
+
+      <div style="width: 80%; height: 12%; margin: auto; margin-top: 53%;">
+        <button style="color: #26C2AE; border-radius: 5px; height: 100%; width: 100%;" id="resetButton"> RESET </button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Chase Blackwood</a>.
+  </div>
+  <script>
+
+    var tip = 0.05;
+
+    var tipAmount = document.getElementById("tipAmount");
+    var totalAmount = document.getElementById("totalAmount");
+
+    var billInput = document.getElementById("billInput");
+    var billAmount = 0.0;
+    billInput.addEventListener('keyup', function(){
+      billAmount = billInput.value;
+      updateAmounts();
+    });
+
+    var peopleInput = document.getElementById("peopleInput");
+    var peopleAmount = 1;
+    peopleInput.addEventListener('keyup', function(){
+      peopleAmount = peopleInput.value;
+      if(peopleAmount){
+
+        updateAmounts();
+      }
+    });
+
+    var fivePercent = document.getElementById("fivePercent");
+    fivePercent.addEventListener('click',function(){
+      tip = 0.05;
+      updateAmounts();
+      resetCustom();
+    });
+
+    var tenPercent = document.getElementById("tenPercent");
+    tenPercent.addEventListener('click',function(){
+      tip = 0.10;
+      updateAmounts();
+      resetCustom();
+    });
+
+    var fifteenPercent = document.getElementById("fifteenPercent");
+    fifteenPercent.addEventListener('click',function(){
+      tip = 0.15;
+      updateAmounts();
+      resetCustom();
+    });
+
+    var twentyFivePercent = document.getElementById("twentyFivePercent");
+    twentyFivePercent.addEventListener('click',function(){
+      tip = 0.25;
+      updateAmounts();
+      resetCustom();
+    });
+
+    var fiftyPercent = document.getElementById("fiftyPercent");
+    fiftyPercent.addEventListener('click',function(){
+      tip = 0.5;
+      updateAmounts();
+      resetCustom();
+    });
+
+    var customTip = document.getElementById("customTip");
+    var inputTip = document.createElement('input');
+    inputTip.addEventListener('keyup', function(){
+        tip = inputTip.value/100;
+        updateAmounts();
+      });
+      inputTip.type = 'text'; // Set input type
+      inputTip.placeholder = 'Enter something...'; // Set placeholder text
+
+    customTip.addEventListener('click',function(){
+      // Replace the button with the new input element in the DOM
+      customTip.parentNode.replaceChild(inputTip, customTip);
+      tip = inputTip.value/100;
+      updateAmounts();
+      
+    });
+
+    var resetButton = document.getElementById("resetButton");
+    resetButton.addEventListener('click', function(){
+      resetPage();
+    })
+
+    function resetCustom(){
+      inputTip.parentNode.replaceChild(customTip, inputTip);
+
+    }
+    function resetPage(){
+      billInput.value = 0;
+      peopleInput.value = 0;
+      tip = 0.05;
+      inputTip.value = 0;
+      billAmount = 0;
+      peopleAmount = 1;
+      resetCustom();
+      updateAmounts();
+    }
+    function updateAmounts(){
+      const tipShare = (billAmount * tip) / peopleAmount;
+      const totalShare = ((billAmount * (1+tip)) / peopleAmount);
+
+      tipAmount.innerText = String(tipShare.toFixed(2));
+      totalAmount.innerText = String(totalShare.toFixed(2));
+    }
+
+
+  </script>
+</body>
+</html>
