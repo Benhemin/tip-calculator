@@ -24,7 +24,7 @@
          max-width: 25rem; 
          margin: auto;
          font-family: 'Space Mono', monospace;">
-  <img src="images\logo.svg" >
+  <img src="images\logo.svg" style="margin: 160px 100px 100px 100px; ">
   <div 
     style="display: flex; 
            background-color: #FFFFFF; 
@@ -35,11 +35,20 @@
            margin-bottom: 30px;">
     <div style="display: flex; flex-direction: column; margin: auto; ">
       <div style="display: flex; flex-direction: column; ">
-        <label for="billInput">Bill</label>
-        <input id="billInput"; type="number" name="billInput" placeholder="0.00" style="min-height: 40px; min-width: 379px; border-radius: 7px; text-align: right;">  
+        <label for="billInput" style="color:hsl(184, 14%, 40%); font-weight: 600; margin-left: 2px;">Bill</label>
+        <input id="billInput"; type="number" name="billInput" placeholder="0.00" 
+               style="background-color: hsl(50%, 20%, 50%); 
+                      min-height: 40px; 
+                      min-width: 379px; 
+                      border-radius: 7px; 
+                      text-align: right;
+                      color:#00474B;
+                      font-size: x-large;
+                      font-weight: 800
+                      ">  
       </div>
       <div style="display: flex; flex-direction: column; margin-top: 20%; margin-bottom: 20%;">
-        <label >Select Tip %</label>
+        <label style="color:hsl(184, 14%, 40%); font-weight: 600;">Select Tip %</label>
         <div style="display: flex;">
           <button id="fivePercent">5%</button>
           <button id="tenPercent">10%</button>
@@ -52,8 +61,16 @@
         </div>
       </div>
       <div style="display: flex; flex-direction: column; margin-top: 15px;">
-        <label for="peopleInput">Number of People</label>
-        <input id="peopleInput" type="number" name="peopleInput" placeholder="0" style="min-height: 40px; min-width: 379px; border-radius: 7px; text-align: right;">
+        <label for="peopleInput" style="color:hsl(184, 14%, 40%); font-weight: 600; margin-left: 2px;">Number of People</label>
+        <span class="currency-symbol" style="position: absolute; top: 74%; left: 28%; font-size: x-large; font-weight: 400;">$</span>
+        <input id="peopleInput" type="number" name="peopleInput" placeholder="0" 
+               style="min-height: 40px; 
+                      min-width: 379px; 
+                      border-radius: 7px; 
+                      text-align: right;
+                      color:#00474b;
+                      font-size: x-large;
+                      font-weight: 800">
       </div>
     </div>
     <div 
@@ -87,9 +104,10 @@
           style="color: #26C2AE; 
                  border-radius: 5px; 
                  height: 100%; width: 100%; 
-                 background-color: #9FE8DF; 
+                 background-color: #26C2AE; 
                  color: #00474B; 
-                 font-weight: 600; 
+                 font-weight: 600;
+                 font-size: 19px; 
                  border: none;" 
                  id="resetButton"> RESET </button>
       </div>
