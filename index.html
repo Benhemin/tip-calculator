@@ -6,141 +6,126 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
-  
-  <title>Frontend Mentor | Tip calculator app</title>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
+  <script src="https://kit.fontawesome.com/2e95fb5c4a.js" crossorigin="anonymous"></script>  
 </head>
-<body 
-  style="background-color: #C5E4E7; 
-         display: flex; 
-         justify-content: center; 
-         align-items: center; 
-         flex-direction: column; 
-         max-width: 25rem; 
-         margin: auto;
-         font-family: 'Space Mono', monospace;">
-  <img src="images\logo.svg" style="margin: 160px 100px 100px 100px; ">
-  <div 
-    style="display: flex; 
-           background-color: #FFFFFF; 
-           min-height: 481px; 
-           min-width: 920px; 
-           box-shadow: 5px 8px 20px rgba(0,0,0,0.2), -5px 8px 20px rgba(0,0,0,0.2), 0 4px 10px rgba(0,0,0,0.15); 
-           border-radius: 25px; 
-           margin-bottom: 30px;">
-    <div style="display: flex; flex-direction: column; margin: auto; ">
-      <div style="display: flex; flex-direction: column; ">
-        <label for="billInput" style="color:hsl(184, 14%, 40%); font-weight: 600; margin-left: 2px;">Bill</label>
-        <input id="billInput"; type="number" name="billInput" placeholder="0.00" 
-               style="background-color: hsl(50%, 20%, 50%); 
-                      min-height: 40px; 
-                      min-width: 379px; 
-                      border-radius: 7px; 
-                      text-align: right;
-                      color:#00474B;
-                      font-size: x-large;
-                      font-weight: 800
-                      ">  
+<body>
+  <img src="images\logo.svg" class="logo">
+  <div class="card">
+    <div class="card-column1">
+      <div class="card-column1-billInput">
+        <label for="billInput" class="card-column1-billInput-label">Bill</label>
+        <input id="billInput" class="card-column1-input" placeholder="0">
       </div>
-      <div style="display: flex; flex-direction: column; margin-top: 20%; margin-bottom: 20%;">
-        <label style="color:hsl(184, 14%, 40%); font-weight: 600;">Select Tip %</label>
-        <div style="display: flex;">
-          <button id="fivePercent">5%</button>
-          <button id="tenPercent">10%</button>
-          <button id="fifteenPercent">15%</button>
-        </div>
-        <div style="display: flex;">
-          <button id="twentyFivePercent">25%</button>
-          <button id="fiftyPercent">50%</button>
-          <button id="customTip">Custom</button>
+      <div class="card-column1-selectTip">
+        <label>Select Tip %</label>
+        <div class="tip-container">
+          <button class="tip" id="fivePercent">5%</button>
+          <button class="tip" id="tenPercent">10%</button>
+          <button class="tip" id="fifteenPercent">15%</button>
+          <button class="tip" id="twentyFivePercent">25%</button>
+          <button class="tip" id="fiftyPercent">50%</button>
+          <button class="customTip" id="customTip">Custom</button>
         </div>
       </div>
-      <div style="display: flex; flex-direction: column; margin-top: 15px;">
-        <label for="peopleInput" style="color:hsl(184, 14%, 40%); font-weight: 600; margin-left: 2px;">Number of People</label>
-        <span class="currency-symbol" style="position: absolute; top: 74%; left: 28%; font-size: x-large; font-weight: 400;">$</span>
-        <input id="peopleInput" type="number" name="peopleInput" placeholder="0" 
-               style="min-height: 40px; 
-                      min-width: 379px; 
-                      border-radius: 7px; 
-                      text-align: right;
-                      color:#00474b;
-                      font-size: x-large;
-                      font-weight: 800">
+      <div class="card-column1-numPeople">
+        <label for="peopleInput">Number of People</label>
+        <input id="peopleInput" class="card-column1-input" placeholder="1">
       </div>
     </div>
-    <div 
-      style="background-color: #00474b; 
-             height: 417px; 
-             width: 413px; 
-             border-radius: 15px; 
-             margin: auto;">`
-      <div style="display: flex; max-height: 50px; width: 80%; justify-content: space-between; margin: auto;">
-        <div style="display: flex; flex-direction: column;">
-          <h3 style="margin-bottom: 0%;">Tip Amount </h3>
-          <p style="margin-top: 0%;">/ person</p>
+    <div class="bigBox">
+      <div class="row">
+        <div class="rowLabel">
+          <h3>Tip Amount </h3>
+          <p>/ person</p>
         </div>
-        <div style="display: flex; flex-direction: column;">
-          <h4 style="color: #26C2AE;" id="tipAmount">$0.00</h4>
+        <div class="rowAmount">
+          <h4 id="tipAmount">$0.00</h4>
         </div>
       </div>
 
-      <div style="display: flex; max-height: 50px; width: 80%; justify-content: space-between; margin: auto;">
-        <div style="display: flex; flex-direction: column;">
-          <h3 style="margin-bottom: 0%;">Total </h3>
-          <p style="margin-top: 0%;">/ person</p>
+      <div class="row">
+        <div class="rowLabel">
+          <h3>Total </h3>
+          <p>/ person</p>
         </div>
-        <div style="display: flex; flex-direction: column;">
-          <h4 style="color: #26C2AE;" id="totalAmount">$0.00</h4>
+        <div class="rowAmount">
+          <h4 id="totalAmount">$0.00</h4>
         </div>
       </div>
 
-      <div style="width: 80%; height: 12%; margin: auto; margin-top: 50%;">
-        <button 
-          style="color: #26C2AE; 
-                 border-radius: 5px; 
-                 height: 100%; width: 100%; 
-                 background-color: #26C2AE; 
-                 color: #00474B; 
-                 font-weight: 600;
-                 font-size: 19px; 
-                 border: none;" 
-                 id="resetButton"> RESET </button>
+      <div class="buttonRow">
+        <button id="resetButton" class="resetButton"> RESET </button>
       </div>
     </div>
   </div>
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Chase Blackwood</a>.
+    Coded by <a href="#">Ben Ruelas</a>.
   </div>
   <script>
-
-    var tip = 0.05;
-
+    var tip = 0;
     var tipAmount = document.getElementById("tipAmount");
     var totalAmount = document.getElementById("totalAmount");
-
     var billInput = document.getElementById("billInput");
     var billAmount = 0.0;
+    var customTip = document.getElementById("customTip");
+    var inputTip = document.createElement('input');
+
+    const resetButton = document.getElementById("resetButton");
+    resetButton.disabled = true;  
+
+    inputTip.setAttribute('style', "border: 2px solid #26C2AE; border-color: #26C2AE; border-radius: 5px; color: #00474B; font-weight: 700; font-size: 24px; font-family: SpaceMono; text-align: right");
+    inputTip.parentNode = customTip.parentNode;
+
     billInput.addEventListener('keyup', function(){
-      billAmount = billInput.value;
+      billAmount = billInput.value/1;
+
+      if(billAmount < 0){
+        billInput.setAttribute('style', "border: 3px solid #E17052; border-color: #E17052;");
+      }
+      else{
+        billInput.setAttribute('style', "border: 3px solid #26C2AE; border-color: #26C2AE;");
+      }
+      resetButton.disabled = false;
       updateAmounts();
     });
+
+    billInput.addEventListener('mouseover', function(){
+      billInput.setAttribute('style', "border: 3px solid #00474B; border-color: #00474B;");
+    })
+
+    billInput.addEventListener('mouseout', function(){
+      billInput.setAttribute('style', "border: none; border-color: #00474B;");
+    })
 
     var peopleInput = document.getElementById("peopleInput");
     var peopleAmount = 1;
     peopleInput.addEventListener('keyup', function(){
       peopleAmount = peopleInput.value;
-      if(peopleAmount){
-
+      if(peopleAmount > 0){ 
+        peopleInput.setAttribute('style', "border: 2px solid #26C2AE; border-color: #26C2AE;");
         updateAmounts();
+      }else{
+        peopleInput.setAttribute('style', "border: 2px solid #E17052; border-color: #E17052;");
       }
+
+      resetButton.disabled = false;
     });
+
+    peopleInput.addEventListener('mouseover', function(){
+      peopleInput.setAttribute('style', "border: 3px solid #00474B; border-color: #00474B;");
+    })
+
+    peopleInput.addEventListener('mouseout', function(){
+      peopleInput.setAttribute('style', "border: none; border-color: #00474B;");
+    })
 
     var fivePercent = document.getElementById("fivePercent");
     fivePercent.addEventListener('click',function(){
@@ -177,45 +162,46 @@
       resetCustom();
     });
 
-    var customTip = document.getElementById("customTip");
-    var inputTip = document.createElement('input');
     inputTip.addEventListener('keyup', function(){
-        tip = inputTip.value/100;
+        tip = inputTip.value;
+        resetButton.disabled = false;
         updateAmounts();
-      });
-      inputTip.type = 'text'; // Set input type
-      inputTip.placeholder = 'Enter something...'; // Set placeholder text
+    });
 
     customTip.addEventListener('click',function(){
       // Replace the button with the new input element in the DOM
       customTip.parentNode.replaceChild(inputTip, customTip);
-      tip = inputTip.value/100;
+      inputTip.focus();
+      inputTip.value = (tip >= 1) ? tip : "";
       updateAmounts();
       
     });
 
-    var resetButton = document.getElementById("resetButton");
     resetButton.addEventListener('click', function(){
       resetPage();
     })
 
     function resetCustom(){
-      inputTip.parentNode.replaceChild(customTip, inputTip);
-
+      inputTip.replaceWith(customTip);
     }
+
     function resetPage(){
-      billInput.value = 0;
-      peopleInput.value = 0;
-      tip = 0.05;
-      inputTip.value = 0;
+      billInput.value = "";
+      billInput.setAttribute('style', "border: none;");
+      peopleInput.value = "";
+      peopleInput.setAttribute('style', "border: none;");
+      resetButton.disabled = true;
+      tip = 0;
+      inputTip.value = "";
       billAmount = 0;
       peopleAmount = 1;
       resetCustom();
       updateAmounts();
     }
     function updateAmounts(){
-      const tipShare = (billAmount * tip) / peopleAmount;
-      const totalShare = ((billAmount * (1+tip)) / peopleAmount);
+      
+      const tipShare = (tip >= 1) ?  (tip / peopleAmount) : ((billAmount * tip) / peopleAmount);
+      const totalShare = (tip >= 1) ? ((billAmount + tip/1) / peopleAmount) : ((billAmount + (billAmount * tip)) / peopleAmount);
 
       tipAmount.innerText = String(tipShare.toFixed(2));
       totalAmount.innerText = String(totalShare.toFixed(2));

@@ -1,3 +1,303 @@
-button {
-    width: 75px;
+@font-face{
+    font-family: "SpaceMono";
+    src: url(./assets/SpaceMono-Regular.ttf);
 }
+
+@media screen and (min-width: 1000px){
+    
+
+    body {
+        background-color: #C5E4E7; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        flex-direction: column; 
+        width: 100%;
+        height: 100%;
+        font-family: "SpaceMono";
+    }
+
+    img.logo {
+        margin: 160px 100px 100px 100px;
+    }
+
+    div.card{
+        display: flex; 
+        flex-direction: row;
+        padding: 1.5%;
+        background-color: #FFFFFF; 
+        height: 47%;
+        max-height: 481px; 
+        width: 60%; 
+        max-width: 920px;
+        box-shadow: 5px 8px 20px rgba(0,0,0,0.2), -5px 8px 20px rgba(0,0,0,0.2), 0 4px 10px rgba(0,0,0,0.15); 
+        border-radius: 25px; 
+        
+    }
+
+    div.card-column1{
+        display: flex; 
+        flex-direction: column;
+        row-gap: 3rem; 
+        margin: auto;
+        height: 80%;
+        width: 40%;
+        vertical-align:middle;
+    }
+
+    div.bigBox{
+        display: flex;
+        flex-direction: column;
+        background-color: #00474b; 
+        height: 417px; 
+        width: 50%; 
+        border-radius: 15px;
+    }
+
+    button.tip{
+        height: 48px;
+        width: 100%;
+        font-family: "SpaceMono"; 
+        font-weight: 700;
+        font-size: 24px;
+        color: #FFFFFF;
+        background-color: hsl(183, 100%, 15%);
+        border-radius: 5px;
+        border: none;
+    }
+    h4{
+        color: #26C2AE; font-size: 48px;
+    }
+}
+
+@media screen and (min-width: 300px){
+
+    body {
+        background-color: #C5E4E7; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        flex-direction: column; 
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        font-family: "SpaceMono";
+    }
+    h4{
+        color: #26C2AE; font-size: 32px;
+    }
+    div.card{
+        display: flex; 
+        flex-direction: column;
+        padding: 1.5%;
+        background-color: #FFFFFF; 
+        height: 100%;
+        min-height: 789px;
+        width: 100%; 
+        border-radius: 25px 25px 0 0; 
+        
+    }
+
+    div.tip-container{
+        display: grid;
+        width: 100%;
+        grid-gap: 14px;
+        justify-content: center;
+        grid-template-columns: repeat( 2,  47%);
+        
+    }
+
+    img.logo {
+        margin: 50px auto;
+    }
+
+    div.card-column1{
+        display: flex; 
+        flex-direction: column;
+        row-gap: 2rem; 
+        margin: auto;
+        margin-top: 7%;
+        height: 50%;
+        width: 80%;
+        vertical-align:middle;
+        margin-bottom: 10%;
+    }
+
+    div.bigBox{
+        display: flex;
+        flex-direction: column;
+        background-color: #00474b; 
+        height: 257px; 
+        width: 85%; 
+        border-radius: 15px;
+        margin: auto;
+        margin-top: 0;
+    }
+    div.attribution{
+        display: none;
+    }
+
+    button.tip{
+        height: 48px;
+        width: 100%;
+        font-family: "SpaceMono"; 
+        font-weight: 700;
+        font-size: 24px;
+        color: #FFFFFF;
+        background-color: hsl(183, 100%, 15%);
+        border-radius: 5px;
+        border: none;
+    }
+
+}
+
+h3{
+    margin-bottom: 0%; 
+    font-size: 16px; 
+    color: #FFFFFF;
+}
+p{
+    margin-top: 0%; 
+    font-size: 13px; 
+    color: #7F9D9F;
+}
+
+button.tip:hover{
+    background-color: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+}
+
+button.tip:focus{
+    background-color: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+}
+
+button.customTip{
+    height: 48px;
+    width: 100%;
+    font-family: "SpaceMono"; 
+    font-weight: 700;
+    font-size: 24px;
+    background-color: hsl(189, 41%, 97%);
+    border-radius: 5px;
+    border: none;
+    color: hsl(186, 14%, 43%);
+}
+
+input{
+    height: 48px;
+    width: 100%;
+    font-family: "SpaceMono"; 
+    font-weight: 700;
+    font-size: 24px;
+    background-color: hsl(189, 41%, 97%);
+    border-radius: 5px;
+    border: none;
+    color: hsl(183, 100%, 15%);
+}
+
+
+i.icon{
+    position: absolute;
+    padding: 8px;
+    padding-left: 20px;
+    color:hsl(184, 14%, 56%);
+    font-family: 'SpaceMono';
+    font-size: 32px;
+    z-index: 1;
+}
+
+div.card-column1-billInput div.card-column1-selecTip div.card-column1-numPeople{
+    display: flex; 
+    flex-direction: column;
+    height: 33%;   
+}
+
+div.row{
+    display: flex; 
+    flex-direction: row; 
+    height: 20%; 
+    width: 86%; 
+    padding-left: 7%; 
+    padding-right: 7%; 
+    padding-top: 5%;
+}
+
+div.rowLabel{
+    display: flex; 
+    flex-direction: column; 
+    width: 50%; 
+    margin:auto; 
+    margin-left: 0%;
+}
+
+div.rowAmount{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+}
+div.buttonRow{
+    display: flex; 
+    flex-direction: row; 
+    width: 81%; 
+    height: 12%; 
+    margin: auto; 
+    margin-bottom: 10%;
+}
+
+
+label{
+    color:hsl(186, 14%, 43%); 
+    font-weight: 600; 
+    margin-left: 2px;
+}
+
+input.card-column1-input{ 
+    font-family: "SpaceMono";   
+    border-radius: 5px;
+    width: 100%;
+    max-width: 379px;
+    border: none;
+    text-align: right;
+    padding-right: 0.5em;
+    font-size: 24px;
+    font-weight: 700;
+    background-color: hsl(189, 41%, 97%);                   
+}
+
+.card-column1-billInput input{
+    background-image: url('./images/icon-dollar.svg');
+    background-position: 20px 12px; 
+    background-repeat: no-repeat;
+    background-size: 15px;
+}
+
+.card-column1-numPeople input{
+    background-image: url('./images/icon-person.svg');
+    background-position: 20px 15px; 
+    background-repeat: no-repeat;
+    background-size: 15px;
+}
+
+button.resetButton{
+    color: #26C2AE; 
+    border-radius: 5px;
+    height: 100%; 
+    width: 100%; 
+    background-color: #26C2AE; 
+    color: #00474B; 
+    font-weight: 600;
+    font-size: 19px; 
+    border: none;
+}
+
+button.resetButton:hover{
+    background-color: #9FE8DF;
+}
+
+button.resetButton:disabled{
+    background-color: #0D686D; 
+    color: #00474B; 
+}
+
+
