@@ -70,7 +70,7 @@
     }
 }
 
-@media screen and (min-width: 300px){
+@media screen and (min-width: 300px) and (max-width:999px){
 
     body {
         background-color: #C5E4E7; 
